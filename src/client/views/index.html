@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Text Analysis</title>
+        <link  href="styles/resets.css">
+        <link  href="styles/base.css">
+        <link  href="styles/header.css">
+        <link  href="styles/form.css">
+        <link  href="styles/footer.css">
+    </head>
+
+    <body>
+
+        <header>
+            <div>
+            <h1>Text Analysis</h1>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <form class="submitBox" onsubmit="Client.handleSubmit(event)">
+                    <input id="input" type="text" name="input" value="" placeholder="Enter the text or link you would like analyzed" required>
+                    <input id="submit" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+                <p hidden id="error">Enter text or link to analyze.</p>
+            </section>
+
+            <section>
+                <div hidden id="resultText">
+                    <p>Results:</p>
+                    <div id="results"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>By Noah Helmig</p>
+        </footer>
+        
+        <script>
+            if ("serviceWorker" in navigator) {
+              window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/service-worker.js");
+              });
+            }
+        </script>
+
+    </body>
+</html>
